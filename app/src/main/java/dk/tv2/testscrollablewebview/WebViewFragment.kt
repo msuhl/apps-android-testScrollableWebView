@@ -25,8 +25,8 @@ class WebViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        initWebview("https://tv2.dk")
-        initWebview("https://nyheder.tv2.dk/node/1395002/chromeless")
+        initWebview("https://tv2.dk")
+//        initWebview("https://nyheder.tv2.dk/node/1395002/chromeless")
     }
 
     fun initWebview(url: String) {
@@ -36,10 +36,6 @@ class WebViewFragment : Fragment() {
         embeddedWebview.settings.useWideViewPort = true
         embeddedWebview.webChromeClient = WebChromeClient()
         embeddedWebview.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                embeddedWebview.evaluateJavascript("alert('Hejsa');", null)
-            }
         }
         // enable remote debugging
         WebView.setWebContentsDebuggingEnabled(true)
